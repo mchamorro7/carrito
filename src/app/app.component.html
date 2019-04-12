@@ -1,4 +1,24 @@
-<hello name="{{ name }}"></hello>
-<p>
- 
-</p>
+<header>
+  <nav class="navbar navbar-dark bg-dark">
+    <a [routerLink]="['']" [routerLinkActive]="['actived']" class="navbar-brand" >Shopping-Cart</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+       <a [routerLink]="['products']" [routerLinkActive]="['actived']" class="nav-link" >Products</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<body>
+  
+  <section id="content">
+    <router-outlet></router-outlet>
+  </section>
+
+  
+  <footer class="page-footer font-small bg-dark">
+    <div class="footer-copyright text-center py-3" style="color:white">© 2018 - Mateo Chamorro
+    </div>
+  </footer>
+
+</body>
