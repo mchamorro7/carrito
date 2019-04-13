@@ -12,7 +12,8 @@ export class ProductsComponent implements OnInit {
 
   private products = [];
   private choices = [];
-  private seleccionado: any = null;
+  private seleccionado: Boolean = false;
+  private cantidad: number=0;
 
   constructor(private _data: DataService) { }
 
@@ -24,7 +25,18 @@ export class ProductsComponent implements OnInit {
   }
 
   onClick(i:Item){
-    console.log(i.id);
-    this.choices.push(i); 
+    this.choices.forEach((x: Item)=> {
+      if(x.id==i.id){
+        this.seleccionado=true;
+        console.log("Producto ya añadido");
+      }
+    });
+    if(!this.seleccionado){
+      console.log(i.id);
+      this.choices.push(i);
+      console.log(this.cantidad);
+  
+    }
+    this.seleccionado=false; 
   }
 }

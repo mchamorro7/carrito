@@ -1,16 +1,21 @@
 <div class="row lb">
-  <div class="col-sm-3"><strong>Product</strong></div>
-  <div class="col-sm-3"><strong>Size</strong></div>
-  <div class="col-sm-3"><strong>Price</strong></div>
+  <div class="col"><strong>Product</strong></div>
+  <div class="col"><strong>Size</strong></div>
+  <div class="col"><strong>Price</strong></div>
+  <div class="col"><strong>Qty</strong></div>
+  <div class="col"></div>
 </div>
 
 <ul class="list-group">
   <li  *ngFor="let item of products" class="list-group-item" >
     <div class="row">
-      <div class="col-sm-3">{{item.name}}</div>
-      <div class="col-sm-3">{{item.size}}</div>
-      <div class="col-sm-3">${{item.price}}</div>
-      <div class="col-sm-3">
+      <div class="col">{{item.name}}</div>
+      <div class="col">{{item.size}}</div>
+      <div class="col">${{item.price}}</div>
+      <div class="col">
+         <input  type="number" min="1" value="1" style="width:50px">
+      </div>
+      <div class="col">
         <button (click)="onClick(item)" type="button" class="btn btn-primary">Add to cart</button>
       </div>
     </div>

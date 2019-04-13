@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Item } from '../item';
 
 @Component({
@@ -8,7 +8,10 @@ import { Item } from '../item';
 })
 export class CartComponent implements OnInit {
 
-  @Input() choices: Item[];
+  @Input() 
+  choices: Item[]; 
+
+  private total: number = 0;
 
   constructor() { }
 
@@ -16,8 +19,17 @@ export class CartComponent implements OnInit {
     
   }
 
+  ngOnChanges(){
+    
+  }
+
   //Método para remover el producto del carrito
-  remove(i: Item){
+  remove(i: Item):void{
     this.choices.splice(this.choices.indexOf(i),1);
   }
+
+  /*getTotal(n: number):void{
+    console.log("entro aca");
+    this.total=this.total+n;
+  }*/
 }
