@@ -1,0 +1,12 @@
+.card{
+  margin:auto;
+  display:block;
+  margin-top: 20px;
+}
+
+
+.col-sm-3{
+  margin:auto;
+  display:block;
+  text-align: center;
+}

@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   private products = [];
   private choices = [];
+  private seleccionado: any = null;
 
   constructor(private _data: DataService) { }
 
@@ -24,6 +25,6 @@ export class ProductsComponent implements OnInit {
 
   onClick(i:Item){
     console.log(i.id);
-    this.choices.push(i);
+    this.choices.push(i); 
   }
 }
