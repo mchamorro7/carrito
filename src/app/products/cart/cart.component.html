@@ -7,7 +7,7 @@
       <li *ngFor="let item of choices" class="list-group-item">
         <div class="row">
           <div class="col-sm-3">{{item.name}}</div>
-          <div class="col-sm-3">${{item.price*item.qty}}</div>
+          <div class="col-sm-3">${{item.price}}</div>
           <div class="col-sm-3" style="width:50%">
              {{item.qty}}
           </div>
@@ -20,7 +20,7 @@
     <div class="card-footer">
       <div class="row">
         <h5>Total: ${{total}}</h5>
-        <button type="button" class="btn btn-success" style="position: absolute; right:40px">Buy</button>
+        <button *ngIf="total!=0" (click)="buy()" type="button" class="btn btn-success" style="position: absolute; right:40px">Buy</button>
       </div>
     </div>
   </div>

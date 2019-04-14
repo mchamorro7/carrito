@@ -27,6 +27,5 @@ export class ItemListComponent implements OnInit {
     this.cantidad=c;
     this.messageEvent1.emit(this.cantidad);
     this.messageEvent2.emit(this.product);
-    
   }
 }

@@ -29,15 +29,16 @@ export class CartComponent implements OnInit {
     });
   }
 
-
   //Método para remover el producto del carrito
   remove(i: Item):void{
     this.choices.splice(this.choices.indexOf(i),1);
     this.total=this.total-i.price*i.qty;
   }
 
-  /*getTotal(n: number):void{
-    console.log("entro aca");
-    this.total=this.total+n;
-  }*/
+  buy(){
+    this.choices.splice(0,this.choices.length);
+    this.total=0;
+    alert("Compra exitosa!");
+  }
+
 }
