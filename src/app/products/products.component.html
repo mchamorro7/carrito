@@ -8,19 +8,9 @@
 
 <ul class="list-group">
   <li  *ngFor="let item of products" class="list-group-item" >
-    <div class="row">
-      <div class="col">{{item.name}}</div>
-      <div class="col">{{item.size}}</div>
-      <div class="col">${{item.price}}</div>
-      <div class="col">
-         <input  type="number" min="1" value="1" style="width:50px">
-      </div>
-      <div class="col">
-        <button (click)="onClick(item)" type="button" class="btn btn-primary">Add to cart</button>
-      </div>
-    </div>
+    <app-item-list [product]="item" (messageEvent1)="receiveMessage1($event)" (messageEvent2)="receiveMessage2($event)"></app-item-list>
   </li>
 </ul> 
 
 <!--Comunicación con el componente hijo "Carrito"-->
-<app-cart [choices]="choices"></app-cart>
+<app-cart [choices]="choices" [cant]="cantidad"></app-cart>

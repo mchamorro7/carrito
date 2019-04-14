@@ -4,4 +4,5 @@ export class Item {
   public brand: string
   public size: string;
   public price: number;
+  public qty: number;
 }

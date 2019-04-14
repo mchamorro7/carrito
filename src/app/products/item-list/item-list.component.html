@@ -1,0 +1,11 @@
+<div class="row">
+      <div class="col">{{product.name}}</div>
+      <div class="col">{{product.size}}</div>
+      <div class="col">${{product.price}}</div>
+      <div class="col">
+         <input [(ngModel)]="cant" type="number" min="1" value="1" required style="width:50px">
+      </div>
+      <div class="col">
+        <button (click)="sendData(cant)" type="button" class="btn btn-primary">Add to cart</button>
+      </div>
+</div>
