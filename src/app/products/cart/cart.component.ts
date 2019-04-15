@@ -23,10 +23,19 @@ export class CartComponent implements OnInit {
   }
 
   ngOnChanges(){
+    this.updateTotal();
+  }
+  
+  updateTotal(){
     this.total=0;
     this.choices.forEach((x:Item)=>{
       this.total=this.total+x.price*x.qty;
     });
+  }
+
+  actualizarTotal(i: Item){
+    console.log("item con cantidad: ", i);
+    this.updateTotal();
   }
 
   //Método para remover el producto del carrito

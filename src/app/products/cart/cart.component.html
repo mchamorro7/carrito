@@ -9,7 +9,7 @@
           <div class="col-sm-3">{{item.name}}</div>
           <div class="col-sm-3">${{item.price}}</div>
           <div class="col-sm-3" style="width:50%">
-             {{item.qty}}
+            <input [(ngModel)]="item.qty" (ngModelChange)="actualizarTotal(item)" min="0" type="number" style="width: 40px" >
           </div>
           <div class="col-sm-3">
             <button (click)="remove(item)" type="button" class="btn btn-danger">Remove</button>
