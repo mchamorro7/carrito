@@ -36,6 +36,7 @@ export class ProductsComponent implements OnInit {
       if(x.id==i.id){
         this.seleccionado=true;
         console.log("Producto ya añadido");
+        alert("The product has already been added to the shopping cart.");
       }
     });
     if(!this.seleccionado){

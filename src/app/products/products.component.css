@@ -1,11 +1,24 @@
 .lb{
+  width: 95%;
   margin:auto;
   text-align: center;
-  margin-top:20px;
+  padding-top:20px;
   margin-bottom:20px;
 }
 
 .list-group{
   margin:auto;
   text-align: center;
+}
+
+#contenedor{
+  width: 75%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  opacity: 0.93;
+}
+
+strong{
+  color:white;
 }
