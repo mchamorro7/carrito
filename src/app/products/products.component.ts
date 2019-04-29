@@ -17,7 +17,7 @@ export class ProductsComponent implements OnInit {
   private choices = [];
   private seleccionado: Boolean = false;
 
-  //private arrayCantidad=[];
+ 
   private sel:Item;
  
 
@@ -32,8 +32,10 @@ export class ProductsComponent implements OnInit {
     });
     this.c.currentMessage.subscribe(message => this.choices = message);
   }
+  
 
   onClick(i:Item){
+    console.log(i);
     this.choices.forEach((x: Item)=> {
       if(x.id==i.id){
         this.seleccionado=true;
@@ -44,12 +46,19 @@ export class ProductsComponent implements OnInit {
     if(!this.seleccionado){
       console.log(i.id);
       this.choices.push(i);
+      this.newMessage();
+      console.log("Producto añadido a choices");
     }
     this.seleccionado=false; 
   }
   
+  newMessage() {
+    this.c.changeMessage(this.choices);
+  }
+
   receiveMessage2($event){
     this.sel=$event;
+    console.log("recibe mensaje");
     this.onClick(this.sel);
   }
 }

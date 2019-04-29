@@ -3,7 +3,7 @@
       <div class="col">{{product.size}}</div>
       <div class="col">${{product.price}}</div>
       <div class="col">
-         <input [(ngModel)]="cant" type="number" min="1" value="1" required style="width:50px">
+         <input [(ngModel)]="cant" type="number" min="1" value="1" required style="width:50px" class="form-control">
       </div>
       <div class="col">
         <button *ngIf="cant" (click)="sendData(cant);cant=null" type="button" class="btn btn-primary">Add to cart</button>

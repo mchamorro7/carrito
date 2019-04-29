@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent  {
   name = 'Carrito de compras';
+  cantidadCarrito = 0;
 }
