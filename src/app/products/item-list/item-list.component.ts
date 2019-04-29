@@ -10,10 +10,9 @@ export class ItemListComponent implements OnInit {
 
   @Input() product: Item;
 
-  @Output() messageEvent1= new EventEmitter<number>();
   @Output() messageEvent2= new EventEmitter<Item>();
 
-  public cantidad: number=0;
+
 
   constructor() { }
 
@@ -24,8 +23,7 @@ export class ItemListComponent implements OnInit {
 
   sendData(c: number){
     console.log("cantidad="+c);
-    this.cantidad=c;
-    this.messageEvent1.emit(this.cantidad);
+    this.product.qty=c;
     this.messageEvent2.emit(this.product);
   }
 }

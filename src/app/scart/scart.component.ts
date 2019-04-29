@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CommunicationService} from '../communication.service';
 
 @Component({
   selector: 'app-scart',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./scart.component.css']
 })
 export class ScartComponent implements OnInit {
-
-  constructor() { }
+  private choices =[];
+  constructor(private c: CommunicationService) { }
 
   ngOnInit() {
+    this.c.currentMessage.subscribe(message => this.choices = message)
   }
 
+  newMessage() {
+    this.c.changeMessage(this.choices);
+  }
 }

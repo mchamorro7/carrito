@@ -1,9 +1,10 @@
 import { Component, OnInit} from '@angular/core';
 import {Item} from './item';
-import {Observable} from 'rxjs';
-import {DataService} from '../data.service';
 import {ItemListComponent} from './item-list/item-list.component';
-
+//Imports de servicios
+import {DataService} from '../data.service';
+import {CommunicationService} from '../communication.service';
+import {Observable} from 'rxjs';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -15,12 +16,12 @@ export class ProductsComponent implements OnInit {
   private products = [];
   private choices = [];
   private seleccionado: Boolean = false;
-  private cantidad: number=0;
+
   //private arrayCantidad=[];
   private sel:Item;
  
 
-  constructor(private _data: DataService) { }
+  constructor(private _data: DataService, private c: CommunicationService) { }
 
  
 
@@ -28,10 +29,11 @@ export class ProductsComponent implements OnInit {
     this._data.getProducts().subscribe((res : any[])=>{
      // console.log(res);
       this.products = res;
-  });
+    });
+    this.c.currentMessage.subscribe(message => this.choices = message);
   }
 
-  onClick(i:Item, c: number){
+  onClick(i:Item){
     this.choices.forEach((x: Item)=> {
       if(x.id==i.id){
         this.seleccionado=true;
@@ -41,20 +43,13 @@ export class ProductsComponent implements OnInit {
     });
     if(!this.seleccionado){
       console.log(i.id);
-      i.qty=c;
       this.choices.push(i);
-     // console.log(this.cantidad);
     }
     this.seleccionado=false; 
-  }
-
-   receiveMessage1($event){
-    this.cantidad=$event;
-   // this.arrayCantidad.push(this.cantidad)
   }
   
   receiveMessage2($event){
     this.sel=$event;
-    this.onClick(this.sel, this.cantidad);
+    this.onClick(this.sel);
   }
 }

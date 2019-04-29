@@ -9,10 +9,10 @@
 
   <ul class="list-group">
     <li  *ngFor="let item of products" class="list-group-item" >
-      <app-item-list [product]="item" (messageEvent1)="receiveMessage1($event)" (messageEvent2)="receiveMessage2($event)"></app-item-list>
+      <app-item-list [product]="item" (messageEvent2)="receiveMessage2($event)"></app-item-list>
     </li>
   </ul> 
 
-  <!--Comunicación con el componente hijo "Carrito"-->
-  <app-cart [choices]="choices" [cant]="cantidad"></app-cart>
+  <!--Comunicación con el componente hijo "Carrito"
+  <app-cart [choices]="choices" [cant]="cantidad"></app-cart>-->
 </div>
