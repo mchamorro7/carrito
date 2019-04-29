@@ -10,11 +10,12 @@ import { ProductsComponent } from './products/products.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './products/cart/cart.component';
 import { ItemListComponent } from './products/item-list/item-list.component';
+import { ScartComponent } from './scart/scart.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, routing,
     HttpClientModule],
-  declarations: [ AppComponent, ProductsComponent, AboutComponent, CartComponent, ItemListComponent ],
+  declarations: [ AppComponent, ProductsComponent, AboutComponent, CartComponent, ItemListComponent, ScartComponent ],
   bootstrap:    [ AppComponent ],
   providers: [DataService, appRoutingProviders]
 })

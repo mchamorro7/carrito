@@ -5,3 +5,23 @@ p {
 body{
   background-image: url("https://images.pexels.com/photos/583846/pexels-photo-583846.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
 }
+
+#itemCount {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 17px;
+  height: 17px;
+  line-height: 17px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
+#cart-container {
+  float: right;
+  width: 210px;
+  position: relative;
+}
+

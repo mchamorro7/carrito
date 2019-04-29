@@ -6,6 +6,18 @@
        <a [routerLink]="['products']" [routerLinkActive]="['actived']" class="nav-link" >Products</a>
       </li>
     </ul>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <div id="cart-container" >
+          <div id="cart">
+            <a [routerLink]="['cart']" [routerLinkActive]="['actived']">
+            <i class="fa fa-shopping-cart" aria-hidden="true" style="color:white"></i>
+            </a>
+          </div>
+        <span id="itemCount">0</span>
+      </div>
+      </li>
+    </ul>
   </nav>
 </header>
 
