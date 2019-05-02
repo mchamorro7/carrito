@@ -30,7 +30,7 @@ export class ProductsComponent implements OnInit {
      // console.log(res);
       this.products = res;
     });
-    this.c.currentMessage.subscribe(message => this.choices = message);
+    //this.c.currentMessage.subscribe(message => this.choices = message);
   }
   
 
@@ -45,8 +45,9 @@ export class ProductsComponent implements OnInit {
     });
     if(!this.seleccionado){
       console.log(i.id);
-      this.choices.push(i);
-      this.newMessage();
+      //this.choices.push(i);
+      //this.newMessage();
+      this.c.addProductToCart(i);
       console.log("Producto añadido a choices");
     }
     this.seleccionado=false; 

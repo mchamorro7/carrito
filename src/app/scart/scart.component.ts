@@ -9,34 +9,32 @@ import {Item} from '../products/item';
   styleUrls: ['./scart.component.css']
 })
 export class ScartComponent implements OnInit {
-  private choices = [];
+  private productsInCart : Item[] = [];
   private total: number = 0;
 
   constructor(private c: CommunicationService) { }
 
   ngOnInit() {
-    this.c.currentMessage.subscribe(message => this.choices = message);
-    this.updateTotal();
+    this.c.inCart$.subscribe(message => {
+      this.productsInCart= message;
+      this.updateTotal();
+    });
   }
   
-  ngOnChanges(){
-    this.updateTotal();
-  }
 
   remove(i: Item){
-      this.choices.splice(this.choices.indexOf(i),1);
-      this.updateTotal();
+      this.c.removeItemFromCart(i);
   }
 
   updateTotal(){
     this.total=0;
-    this.choices.forEach((x:Item)=>{
+    this.productsInCart.forEach((x:Item)=>{
       this.total=this.total+x.price*x.qty;
     });
   }
 
   buy(){
-    this.choices.splice(0,this.choices.length);
+    this.productsInCart.splice(0,this.productsInCart.length);
     alert("Compra exitosa!");
     this.updateTotal();
   }
